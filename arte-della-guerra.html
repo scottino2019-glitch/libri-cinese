@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Arte della Guerra (孫子兵法) - Sun Tzu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-paper: #e5d9c5;
+      --ink: #221c17;
+      --lacquer-red: #8b1e1b;
+      --gold: #b3882a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.75;
+      font-size: 19px;
+      padding: 40px 24px;
+    }
+    .scroll-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ede2cf;
+      border: 1px solid #cbbba5;
+      box-shadow: 0 10px 35px rgba(45, 35, 25, 0.16);
+      padding: 50px 60px;
+      position: relative;
+    }
+    .header-seal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--lacquer-red);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+    }
+    .seal {
+      width: 58px;
+      height: 58px;
+      background: var(--lacquer-red);
+      color: #f6efe2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 26px;
+      border: 2px solid #54110f;
+      border-radius: 4px;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      color: var(--lacquer-red);
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+    .chinese-title {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 34px;
+      color: var(--gold);
+      margin-left: 10px;
+    }
+    .author {
+      font-style: italic;
+      color: #554940;
+      margin-top: 6px;
+    }
+    .chapter {
+      margin-bottom: 46px;
+      padding-bottom: 30px;
+      border-bottom: 1px dashed #cebeaa;
+    }
+    .chapter-num {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--lacquer-red);
+      padding: 2px 12px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+    .chinese-original {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      color: #645547;
+      background: rgba(220,205,185,0.4);
+      border-left: 3px solid var(--gold);
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .quote-box {
+      border: 1px solid var(--gold);
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: rgba(243, 235, 222, 0.7);
+      font-style: italic;
+      font-size: 21px;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="header-seal">
+      <div>
+        <h1>L'Arte della Guerra <span class="chinese-title">孫子兵法</span></h1>
+        <div class="author">Sun Tzu (孫武) • V sec. a.C. • Trattato di strategia e diplomazia</div>
+      </div>
+      <div class="seal" title="Sigillo Militare">武</div>
+    </div>
+
+    <article class="chapter">
+      <div class="chapter-num">CAPITOLO I • I PIANI PRELIMINARI</div>
+      <h2 style="font-size:24px; margin-bottom:14px; color:var(--ink);">La Valutazione Fondamentale (始計)</h2>
+      <div class="chinese-original">
+        兵者，國之大事，死生之地，存亡之道，不可不察也。<br>
+        故經之以五事，校之以計，而索其情：一曰道，二曰天，三曰地，四曰將，五曰法。
+      </div>
+      <p>L'arte della guerra è di vitale importanza per lo Stato: è il terreno della vita e della morte, la via della sopravvivenza o della rovina. Non v'è questione che meriti riflessione più scrupolosa.</p>
+      <div class="quote-box">
+        "Tutta la guerra è basata sull'inganno. Quando siamo vicini, dobbiamo far credere al nemico che siamo lontani; quando siamo lontani, dobbiamo fargli credere che siamo vicini."
+      </div>
+      <p>Valuta dunque l'esito secondo cinque fattori essenziali: la Dottrina morale (Tao), il Clima e le Stagioni (Cielo), la Conformazione del Territorio (Terra), il Comando e le virtù del Generale (Comandante), e la Disciplina organizzativa (Regola).</p>
+    </article>
+
+    <article class="chapter">
+      <div class="chapter-num">CAPITOLO III • STRATEGIA D'ATTACCO</div>
+      <h2 style="font-size:24px; margin-bottom:14px; color:var(--ink);">Vincere Senza Combattere (謀攻)</h2>
+      <div class="chinese-original">
+        是故百戰百勝，非善之善者也；不戰而屈人之兵，善之善者也。<br>
+        知彼知己，百戰不殆；不知彼而知己，一勝一負；不知彼不知己，每戰必殆。
+      </div>
+      <p>Ottenere cento vittorie su cento battaglie non è il vertice della perfezione militare. Sottomettere l'esercito nemico senza combattere: ecco il sommo dell'abilità strategica.</p>
+      <div class="quote-box">
+        "Se conosci il nemico e conosci te stesso, nemmeno in cento battaglie sarai in pericolo.<br>
+        Se conosci te stesso ma non il nemico, a ogni vittoria seguirà una sconfitta.<br>
+        Se non conosci né il nemico né te stesso, soccomberai in ogni scontro."
+      </div>
+    </article>
+
+    <article class="chapter">
+      <div class="chapter-num">CAPITOLO VI • IL PIENO E IL VUOTO</div>
+      <h2 style="font-size:24px; margin-bottom:14px; color:var(--ink);">L'Adattabilità dell'Acqua (虛實)</h2>
+      <div class="chinese-original">
+        夫兵形象水，水之行，避高而趨下；兵之形，避實而擊虛。<br>
+        水因地而制流，兵因敵而制勝。故兵無常勢，水無常形。
+      </div>
+      <p>La disposizione di un esercito deve somigliare al corso dell'acqua: l'acqua nel suo fluire evita le alture e scorre verso il basso; l'abile stratega evita le difese solide e colpisce nei varchi vacui.</p>
+      <p>Come l'acqua muta il suo corso a seconda del suolo, così l'esercito conquista la vittoria conformandosi ai movimenti del rivale. Nell'arte bellica non esistono formazioni immutabili, proprio come l'acqua non possiede forma fissa.</p>
+    </article>
+  </div>
+</body>
+</html>
