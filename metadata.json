@@ -1,0 +1,6 @@
+{
+  "name": "Biblioteca dei Rotoli",
+  "description": "Homepage monumentale in stile biblioteca imperiale classica cinese per la raccolta di libri e rotoli in HTML, con padiglioni lignei, alto contrasto, grandi titoli calligrafici e consultazione immersiva.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
