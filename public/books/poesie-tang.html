@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poesie della Dinastia Tang (唐詩)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-paper: #e6dac6;
+      --ink: #221c17;
+      --lacquer-red: #8b1e1b;
+      --gold: #b3882a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.75;
+      font-size: 19px;
+      padding: 40px 24px;
+    }
+    .scroll-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ede3d1;
+      border: 1px solid #c9bba5;
+      box-shadow: 0 10px 35px rgba(45, 35, 25, 0.16);
+      padding: 50px 60px;
+    }
+    .header-seal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--lacquer-red);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+    }
+    .seal {
+      width: 58px;
+      height: 58px;
+      background: var(--lacquer-red);
+      color: #f6efe2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 26px;
+      border: 2px solid #54110f;
+      border-radius: 4px;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      color: var(--lacquer-red);
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+    .chinese-title {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 32px;
+      color: var(--gold);
+      margin-left: 10px;
+    }
+    .poem-card {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px dashed #cebeaa;
+    }
+    .poem-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--lacquer-red);
+      margin-bottom: 6px;
+    }
+    .poem-author {
+      font-style: italic;
+      color: #5d4f44;
+      margin-bottom: 14px;
+    }
+    .chinese-verse {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 20px;
+      color: #554433;
+      letter-spacing: 2px;
+      line-height: 2;
+      margin-bottom: 12px;
+      padding-left: 16px;
+      border-left: 3px solid var(--gold);
+    }
+    .ital-verse {
+      font-size: 20px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="header-seal">
+      <div>
+        <h1>Fiori di Poesia Tang <span class="chinese-title">唐詩選</span></h1>
+        <div style="color:#55483f; font-style:italic;">Li Bai (李白) & Wang Wei (王維) • Lirica dell'età dell'oro (618-907 d.C.)</div>
+      </div>
+      <div class="seal" title="Sigillo Poetico">詩</div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-title">Pensieri in una Notte Serena (靜夜思)</div>
+      <div class="poem-author">di Li Bai (李白)</div>
+      <div class="chinese-verse">
+        床前明月光，疑是地上霜。<br>
+        舉頭望明月，低頭思故鄉。
+      </div>
+      <div class="ital-verse">
+        Dinanzi al letto un raggio limpido di luna:<br>
+        dubito sia già brina caduta al suolo.<br>
+        Sollevo lo sguardo alla luna splendente,<br>
+        chino il capo e penso alla mia terra natia.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-title">Il Recinto dei Cervi (鹿柴)</div>
+      <div class="poem-author">di Wang Wei (王維)</div>
+      <div class="chinese-verse">
+        空山不見人，但聞人語響。<br>
+        返景入深林，復照青苔上。
+      </div>
+      <div class="ital-verse">
+        Montagna deserta, anima viva non si scorge,<br>
+        soltanto giunge l'eco di una voce lontana.<br>
+        I riflessi del tramonto penetrano nel bosco profondo,<br>
+        tornano a illuminare il verde del muschio.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-title">Bevendo da Solo sotto la Luna (月下獨酌)</div>
+      <div class="poem-author">di Li Bai (李白)</div>
+      <div class="chinese-verse">
+        花間一壺酒，獨酌無相親。<br>
+        舉杯邀明月，對影成三人。
+      </div>
+      <div class="ital-verse">
+        Tra i fiori una caraffa di vino,<br>
+        bevo da solo, privo di compagni.<br>
+        Sollevo la coppa e invito la luna serena:<br>
+        con la mia ombra siamo in tre a brindare.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

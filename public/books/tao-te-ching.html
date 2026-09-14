@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tao Te Ching (道德經) - Lao Tzu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-paper: #e6dac6;
+      --bg-paper-dark: #d8c9b2;
+      --ink: #221c17;
+      --ink-light: #52473f;
+      --lacquer-red: #8a1d1a;
+      --gold: #b3882a;
+      --gold-light: #d8af4b;
+      --border-red: #6e1614;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper);
+      background-image: 
+        radial-gradient(#b8a993 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(230,218,198,0.92), rgba(216,201,178,0.95));
+      background-size: 24px 24px, 100% 100%;
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.75;
+      font-size: 19px;
+      padding: 40px 24px;
+    }
+    .scroll-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #eee3d1;
+      border: 1px solid #c9bba5;
+      box-shadow: 0 10px 35px rgba(45, 35, 25, 0.18), inset 0 0 80px rgba(180, 160, 130, 0.25);
+      border-radius: 4px;
+      padding: 50px 60px;
+      position: relative;
+    }
+    .scroll-container::before, .scroll-container::after {
+      content: "";
+      position: absolute;
+      left: 20px; right: 20px;
+      height: 2px;
+      background: repeating-linear-gradient(to right, var(--gold) 0, var(--gold) 8px, transparent 8px, transparent 14px);
+    }
+    .scroll-container::before { top: 16px; }
+    .scroll-container::after { bottom: 16px; }
+    
+    .header-seal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--lacquer-red);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+    .seal {
+      width: 58px;
+      height: 58px;
+      background: var(--lacquer-red);
+      color: #f6efe2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 26px;
+      border: 2px solid #54110f;
+      box-shadow: 0 3px 8px rgba(138,29,26,0.3);
+      border-radius: 4px;
+      user-select: none;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 34px;
+      color: var(--lacquer-red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .chinese-title {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 36px;
+      color: var(--gold);
+      margin-left: 12px;
+      font-weight: normal;
+    }
+    .author {
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 20px;
+      margin-top: 6px;
+    }
+    .nav-chapters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding: 14px;
+      background: rgba(216,201,178,0.4);
+      border: 1px solid #c9b99f;
+      border-radius: 4px;
+    }
+    .nav-chapters a {
+      color: var(--lacquer-red);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 4px 10px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+    .nav-chapters a:hover {
+      background: rgba(138,29,26,0.08);
+      border-color: var(--gold);
+    }
+    .chapter {
+      margin-bottom: 50px;
+      padding-bottom: 36px;
+      border-bottom: 1px dashed #cfbeaa;
+    }
+    .chapter-num {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--lacquer-red);
+      padding: 2px 14px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .chapter-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .chinese-original {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 19px;
+      color: #645547;
+      background: rgba(220,205,185,0.35);
+      border-left: 3px solid var(--gold);
+      padding: 12px 18px;
+      margin-bottom: 18px;
+      letter-spacing: 1.5px;
+      line-height: 1.9;
+    }
+    .translation {
+      font-size: 21px;
+      color: #241e1a;
+      line-height: 1.8;
+    }
+    .translation p {
+      margin-bottom: 12px;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #d0c2ae;
+      font-size: 16px;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+    @media (max-width: 640px) {
+      .scroll-container { padding: 30px 20px; }
+      h1 { font-size: 26px; }
+      .chinese-title { font-size: 28px; }
+      body { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="header-seal">
+      <div>
+        <h1>Tao Te Ching <span class="chinese-title">道德經</span></h1>
+        <div class="author">Attribuito a Laozi (老子) • VI-IV sec. a.C.</div>
+      </div>
+      <div class="seal" title="Sigillo del Tao">道</div>
+    </div>
+
+    <div class="nav-chapters">
+      <span style="font-weight:700; font-size:15px; color:var(--ink-light); display:flex; align-items:center;">Capitoli:</span>
+      <a href="#cap1">I. Il Tao Senza Nome</a>
+      <a href="#cap2">II. La Coesistenza degli Opposti</a>
+      <a href="#cap8">VIII. La Virtù come l'Acqua</a>
+      <a href="#cap11">XI. Il Valore del Vuoto</a>
+      <a href="#cap76">LXXVI. Flessibilità e Rigidità</a>
+    </div>
+
+    <article id="cap1" class="chapter">
+      <div class="chapter-num">CAPITOLO I</div>
+      <h2 class="chapter-title">L'Incommensurabile e la Radice dell'Universo</h2>
+      <div class="chinese-original">
+        道可道，非常道。名可名，非常名。<br>
+        無名天地之始；有名萬物之母。<br>
+        故常無，欲以觀其妙；常有，欲以觀其徼。<br>
+        此兩者，同出而異名，同謂之玄。玄之又玄，眾妙之門。
+      </div>
+      <div class="translation">
+        <p>Il Tao di cui si può parlare non è l'eterno Tao.<br>
+        Il nome che si può pronunciare non è l'eterno Nome.</p>
+        <p>Senza nome è l'origine del Cielo e della Terra;<br>
+        Con un nome è la madre delle diecimila creature.</p>
+        <p>Chi è costantemente privo di desideri ne contempla il mistero segreto;<br>
+        Chi desidera ne osserva solo i confini manifesti.</p>
+        <p>Questi due scaturiscono dalla medesima sorgente, sebbene con nomi diversi.<br>
+        Tale identità è l'arcano: oscurità entro l'oscurità, porta d'accesso a ogni prodigio.</p>
+      </div>
+    </article>
+
+    <article id="cap2" class="chapter">
+      <div class="chapter-num">CAPITOLO II</div>
+      <h2 class="chapter-title">La Relatività delle Forme e il Non-Agire (Wu Wei)</h2>
+      <div class="chinese-original">
+        天下皆知美之為美，斯惡已。皆知善之為善，斯不善已。<br>
+        有無相生，難易相成，長短相形，高下相盈，音聲相和，前後相隨。<br>
+        是以聖人處無為之事，行不言之教。
+      </div>
+      <div class="translation">
+        <p>Quando tutti sotto il cielo riconoscono il bello come bello, nasce la bruttezza.<br>
+        Quando tutti riconoscono il bene come bene, si definisce il male.</p>
+        <p>L'essere e il non-essere si generano a vicenda;<br>
+        Il difficile e il facile si completano l'un l'altro;<br>
+        Il lungo e il corto si misurano insieme;<br>
+        L'alto e il basso si inclinano l'uno verso l'altro;<br>
+        La voce e il suono s'accordano in armonia;<br>
+        Il prima e il dopo si susseguono senza sosta.</p>
+        <p>Per questo il saggio dimora nel compimento del non-agire (<em>Wu Wei</em>),<br>
+        e pratica l'insegnamento che non fa uso di parole.</p>
+      </div>
+    </article>
+
+    <article id="cap8" class="chapter">
+      <div class="chapter-num">CAPITOLO VIII</div>
+      <h2 class="chapter-title">La Suprema Bontà è come l'Acqua</h2>
+      <div class="chinese-original">
+        上善若水。水善利萬物而不爭，處眾人之所惡，故幾於道。<br>
+        居善地，心善淵，與善仁，言善信，政善治，事善能，動善時。<br>
+        夫唯不爭，故無尤。
+      </div>
+      <div class="translation">
+        <p>La suprema virtù è simile all'acqua.<br>
+        L'acqua benefica tutte le creature senza competere con alcuna;<br>
+        si posa nei luoghi che gli uomini disdegnano, e perciò è vicina al Tao.</p>
+        <p>Nel dimorare, ama la terraferma;<br>
+        Nel cuore, ama la profondità dell'abisso;<br>
+        Nelle relazioni, ama la benevolenza;<br>
+        Nelle parole, ama la sincerità fedele;<br>
+        Nel governare, ama l'ordine e la pace;<br>
+        Negli affari, ama l'efficacia misurata;<br>
+        Nelle azioni, ama il momento opportuno.</p>
+        <p>Proprio perché non contende, non incontra biasimo né colpa.</p>
+      </div>
+    </article>
+
+    <article id="cap11" class="chapter">
+      <div class="chapter-num">CAPITOLO XI</div>
+      <h2 class="chapter-title">L'Utilità del Vuoto</h2>
+      <div class="chinese-original">
+        三十輻共一轂，當其無，有車之用。<br>
+        埏埴以為器，當其無，有器之用。<br>
+        鑿戶牖以為室，當其無，有室之用。<br>
+        故有之以為利，無之以為用。
+      </div>
+      <div class="translation">
+        <p>Trenta raggi convergono in un solo mozzo, ma è nello spazio vuoto centrale che risiede l'utilità del carro.</p>
+        <p>Si plasma l'argilla per forgiare un vaso, ma è nello spazio vuoto dell'interno che si trova l'utilità del vaso.</p>
+        <p>Si scavano porte e finestre per costruire una stanza, ma è nello spazio vuoto tra le pareti che risiede l'utilità della stanza.</p>
+        <p>Dunque il pieno offre opportunità vantaggiose, ma è il vuoto a rendere possibile ogni funzione.</p>
+      </div>
+    </article>
+
+    <article id="cap76" class="chapter">
+      <div class="chapter-num">CAPITOLO LXXVI</div>
+      <h2 class="chapter-title">Flessibilità della Vita e Rigidità della Morte</h2>
+      <div class="chinese-original">
+        人之生也柔弱，其死也堅強。<br>
+        草木之生也柔脆，其死也枯槁。<br>
+        故堅強者死之徒，柔弱者生之徒。<br>
+        是以兵強則滅，木強則折。強大處下，柔弱處上。
+      </div>
+      <div class="translation">
+        <p>L'uomo quando nasce è tenero e malleabile; quando muore è rigido e duro.<br>
+        L'erba e gli alberi quando germogliano sono flessibili e delicati; quando muoiono sono secchi e nodosi.</p>
+        <p>La rigidità e la durezza sono compagne della morte;<br>
+        La cedevolezza e la duttilità sono compagne della vita.</p>
+        <p>Così un esercito ostinato marcia verso la disfatta, un albero inflessibile viene schiantato dal vento.<br>
+        Il rigido e possente appartiene al basso; il duttile e flessuoso ascende in alto.</p>
+      </div>
+    </article>
+
+    <div class="footer-note">
+      Biblioteca dei Rotoli Classici • Testo in formato HTML conservato nella raccolta imperiale
+    </div>
+  </div>
+</body>
+</html>
