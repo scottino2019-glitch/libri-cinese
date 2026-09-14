@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #231812;
+    color: #ede4d3;
+    font-family: 'Noto Serif', 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+  }
+}
+
+/* Calligraphic Chinese Fonts */
+.font-calligraphy {
+  font-family: 'Ma Shan Zheng', 'Long Cang', 'Zhi Mang Xing', cursive, 'Noto Serif SC', serif;
+}
+
+.font-sc {
+  font-family: 'Noto Serif SC', 'Noto Serif', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Wooden Bookshelf Backing Texture */
+.wooden-library-room {
+  background-color: #1e130c;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+    linear-gradient(to bottom, #241810 0%, #170e08 100%);
+}
+
+/* Authentic Wooden Shelf Plank */
+.wooden-shelf-plank {
+  height: 28px;
+  background: linear-gradient(180deg, #573318 0%, #3d2310 40%, #2b170a 100%);
+  border-top: 3px solid #855229;
+  border-bottom: 2px solid #140b05;
+  box-shadow: 
+    0 16px 28px rgba(0, 0, 0, 0.8),
+    inset 0 2px 3px rgba(255, 230, 180, 0.25);
+  position: relative;
+  z-index: 20;
+}
+
+.wooden-shelf-plank::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 120px,
+    rgba(0, 0, 0, 0.15) 121px,
+    transparent 124px
+  );
+  pointer-events: none;
+}
+
+/* Authentic Chinese Stitch Bound Book (Xian Zhuang Shū 線裝書) */
+.xianzhuang-book {
+  position: relative;
+  border-radius: 2px 5px 5px 2px;
+  box-shadow: 
+    -4px 4px 14px rgba(0, 0, 0, 0.7),
+    0 12px 24px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.xianzhuang-book:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 
+    -6px 18px 28px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(212, 175, 55, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+/* Left spine stitches (Silk threads holding the book) */
+.silk-binding-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  background: rgba(0, 0, 0, 0.22);
+  border-right: 1.5px solid rgba(0, 0, 0, 0.4);
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Vertical Silk Stitches (4 Traditional Holes 四針眼) */
+.stitch-hole {
+  width: 14px;
+  height: 3px;
+  background: #f7e6be;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  left: 8px;
+}
+
+/* Authentic Paper Title Slip (Tíqiān 題簽) */
+.tiqian-paper {
+  background: #fdfaf2;
+  border: 1px solid #bfb297;
+  box-shadow: 
+    1px 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 2px #fdfaf2,
+    inset 0 0 0 3px #d6c8aa;
+}
+
+/* Vermilion Cinnabar Seal */
+.cinnabar-seal-stamp {
+  background: #9e1a1a;
+  color: #fffaf0;
+  border: 1.5px solid #6b0c0c;
+  box-shadow: 0 2px 4px rgba(158, 26, 26, 0.4);
+}
+
+/* Vertical Writing Mode */
+.vertical-chinese {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.16em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #19100a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a301e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #991b1b;
+}
