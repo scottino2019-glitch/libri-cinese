@@ -10,14 +10,14 @@ interface CalligraphyNavProps {
   counts: Record<BookCategory, number>;
 }
 
-const CATEGORIES: { id: BookCategory; label: string; seal: string; pinyin: string }[] = [
-  { id: 'tutti', label: 'Tutti gli Scaffali', seal: '全', pinyin: 'Quán' },
-  { id: 'fiabe', label: 'Fiabe & Favole', seal: '童', pinyin: 'Tóng' },
-  { id: 'classici', label: 'I Grandi Classici', seal: '經', pinyin: 'Jīng' },
-  { id: 'filosofia', label: 'Filosofia & Maestri', seal: '子', pinyin: 'Zǐ' },
-  { id: 'strategia', label: 'Arte Militare', seal: '武', pinyin: 'Wǔ' },
-  { id: 'letteratura', label: 'Lirica & Poesia', seal: '集', pinyin: 'Jí' },
-  { id: 'storia', label: 'Cronache Storiche', seal: '史', pinyin: 'Shǐ' },
+const CATEGORIES: { id: BookCategory; label: string; seal: string }[] = [
+  { id: 'tutti', label: 'Tutti', seal: '全' },
+  { id: 'fiabe', label: 'Fiabe', seal: '童' },
+  { id: 'classici', label: 'Classici', seal: '經' },
+  { id: 'filosofia', label: 'Filosofia', seal: '子' },
+  { id: 'strategia', label: 'Strategia', seal: '武' },
+  { id: 'letteratura', label: 'Letteratura', seal: '集' },
+  { id: 'storia', label: 'Storia', seal: '史' },
 ];
 
 export const CalligraphyNav: React.FC<CalligraphyNavProps> = ({
@@ -25,13 +25,12 @@ export const CalligraphyNav: React.FC<CalligraphyNavProps> = ({
   onSelectCategory,
   searchQuery,
   onSearchChange,
-  counts,
 }) => {
   return (
-    <div className="w-full mb-8">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pb-4 border-b border-[#3d2716]">
-        {/* CATEGORY SELECTORS: Like wooden shelf markers */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full w-full lg:w-auto scrollbar-none">
+    <div className="w-full mb-8 pt-2">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-[#3d2716]">
+        {/* CATEGORIE PULITE IN STILE LISTELLI D'ARCHIVIO */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full w-full sm:w-auto scrollbar-none">
           {CATEGORIES.map((cat) => {
             const isActive = currentCategory === cat.id;
             return (
@@ -39,58 +38,44 @@ export const CalligraphyNav: React.FC<CalligraphyNavProps> = ({
                 key={cat.id}
                 id={`nav-shelf-${cat.id}`}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`group flex items-center gap-2 px-3.5 py-2 rounded-xs transition-all cursor-pointer shrink-0 border text-sm font-serif ${
+                className={`group flex items-center gap-2 px-3.5 py-1.5 rounded-sm transition-all cursor-pointer shrink-0 border text-base font-italian-body ${
                   isActive
-                    ? 'bg-[#801414] text-[#fff6e6] border-[#a62b2b] shadow-md font-semibold'
-                    : 'bg-[#1a1009] hover:bg-[#2e1c10] text-[#c9b79f] border-[#382212] hover:border-[#54341c]'
+                    ? 'bg-[#801414] text-[#fff6e6] border-[#b02323] shadow-md font-semibold'
+                    : 'bg-[#1a1009] hover:bg-[#2e1c10] text-[#cfbeaa] border-[#382212] hover:border-[#54341c]'
                 }`}
               >
-                {/* Chinese Seal Character */}
                 <span
-                  className={`w-5 h-5 rounded-xs flex items-center justify-center font-calligraphy text-sm font-bold transition-all ${
-                    isActive
-                      ? 'bg-[#fff5e0] text-[#801414]'
-                      : 'bg-[#29170c] text-[#d4af37] group-hover:bg-[#382011]'
+                  className={`w-4 h-4 rounded-xs flex items-center justify-center font-calligraphy text-xs font-bold ${
+                    isActive ? 'bg-white/20 text-white' : 'text-[#d4af37]'
                   }`}
                 >
                   {cat.seal}
                 </span>
-
-                <span className="font-cinzel text-xs font-bold tracking-wide whitespace-nowrap">
+                <span className="tracking-wide whitespace-nowrap">
                   {cat.label}
-                </span>
-
-                <span
-                  className={`text-[11px] px-1.5 py-0.2 rounded font-mono ${
-                    isActive
-                      ? 'bg-black/30 text-white'
-                      : 'bg-[#26150b] text-[#99826a]'
-                  }`}
-                >
-                  {counts[cat.id]}
                 </span>
               </button>
             );
           })}
         </div>
 
-        {/* SEARCH INPUT */}
-        <div className="relative w-full lg:w-72 shrink-0">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8a7259]" />
+        {/* CAMPO DI RICERCA MINIMAL ED ELEGANTE */}
+        <div className="relative w-full sm:w-64 shrink-0">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8a7259]" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Cerca opera o autore..."
-            className="w-full pl-10 pr-9 py-2 bg-[#170e08] text-[#f2e7d0] placeholder-[#7d6750] border border-[#3d2716] focus:border-[#c99732] focus:outline-none rounded-xs font-serif text-sm transition-all shadow-inner"
+            placeholder="Cerca un libro..."
+            className="w-full pl-9 pr-8 py-1.5 bg-[#170e08] text-[#f2e7d0] placeholder-[#7d6750] border border-[#3d2716] focus:border-[#c99732] focus:outline-none rounded-sm font-italian-body text-base transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => onSearchChange('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7d6750] hover:text-[#f2e7d0] cursor-pointer"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#7d6750] hover:text-[#f2e7d0] cursor-pointer"
               title="Azzera"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>

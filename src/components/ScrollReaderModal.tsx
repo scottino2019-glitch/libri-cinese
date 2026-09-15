@@ -103,7 +103,7 @@ export const ScrollReaderModal: React.FC<ScrollReaderModalProps> = ({
 
               <div className="min-w-0">
                 <div className="flex items-center gap-2.5">
-                  <h2 className="font-cinzel text-base sm:text-lg font-bold text-white truncate">
+                  <h2 className="font-italian-title text-base sm:text-lg font-bold text-white truncate">
                     {book.title}
                   </h2>
                   {book.chineseTitle && (
@@ -112,7 +112,7 @@ export const ScrollReaderModal: React.FC<ScrollReaderModalProps> = ({
                     </span>
                   )}
                 </div>
-                <div className="text-xs text-[#d6cbba] font-serif">
+                <div className="text-xs text-[#d6cbba] font-italian-body">
                   {book.author} • {book.dynastyOrPeriod}
                 </div>
               </div>
