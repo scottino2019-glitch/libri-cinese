@@ -2,141 +2,190 @@
 
 @layer base {
   body {
-    background-color: #231812;
-    color: #ede4d3;
-    font-family: 'Noto Serif', 'Cormorant Garamond', Georgia, serif;
+    background-color: #17100b;
+    color: #ede5d8;
+    font-family: 'EB Garamond', Georgia, serif;
     min-height: 100vh;
   }
 }
 
+/* Elegant Italian Display & Body Typography */
+.font-italian-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-italian-body {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
 /* Calligraphic Chinese Fonts */
 .font-calligraphy {
-  font-family: 'Ma Shan Zheng', 'Long Cang', 'Zhi Mang Xing', cursive, 'Noto Serif SC', serif;
+  font-family: 'Ma Shan Zheng', cursive, 'Noto Serif SC', serif;
 }
 
 .font-sc {
-  font-family: 'Noto Serif SC', 'Noto Serif', serif;
+  font-family: 'Noto Serif SC', serif;
 }
 
-.font-cinzel {
-  font-family: 'Cinzel', Georgia, serif;
-}
-
-/* Wooden Bookshelf Backing Texture */
+/* Wooden Library Wall & Room Atmosphere */
 .wooden-library-room {
-  background-color: #1e130c;
+  background-color: #140d08;
   background-image: 
-    radial-gradient(ellipse at 50% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
-    linear-gradient(to bottom, #241810 0%, #170e08 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(217, 148, 52, 0.12) 0%, transparent 60%),
+    linear-gradient(to bottom, #1d120a 0%, #110905 100%);
 }
 
-/* Authentic Wooden Shelf Plank */
-.wooden-shelf-plank {
-  height: 28px;
-  background: linear-gradient(180deg, #573318 0%, #3d2310 40%, #2b170a 100%);
-  border-top: 3px solid #855229;
-  border-bottom: 2px solid #140b05;
+/* ========================================================
+   AUTHENTIC 3D REALISTIC BOOK STYLING (Spessore, Luce, Taglio Pagine)
+   ======================================================== */
+.book-3d-wrapper {
+  perspective: 1100px;
+}
+
+.book-3d-volume {
+  position: relative;
+  border-radius: 3px 10px 10px 3px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* Real Book Volume Depth Shadow (Base) */
+.book-3d-shadow {
   box-shadow: 
-    0 16px 28px rgba(0, 0, 0, 0.8),
-    inset 0 2px 3px rgba(255, 230, 180, 0.25);
+    /* Right page-block depth */
+    8px 0 0 0 #f4ede1,
+    9px 0 0 0 #d9cbbe,
+    14px 4px 18px rgba(0, 0, 0, 0.75),
+    -4px 6px 14px rgba(0, 0, 0, 0.65),
+    inset 0 0 35px rgba(0, 0, 0, 0.4);
+}
+
+/* On Hover: Book pulls out of the shelf towards the reader */
+.group:hover .book-3d-volume {
+  transform: translateY(-16px) translateZ(28px) rotateX(2deg) rotateY(-3deg);
+  box-shadow: 
+    10px 2px 0 0 #fbf6ec,
+    12px 2px 0 0 #d9cbbe,
+    22px 24px 34px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(230, 180, 80, 0.28),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Realistic Spine with Hinges & Silk Thread Stitching */
+.book-spine-crease {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 36px;
+  width: 3px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(255, 255, 255, 0.22) 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Left Spine Stitching Section (Authentic Xian Zhuang Silk) */
+.book-spine-silk-strip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 16px 0;
+  z-index: 10;
+}
+
+/* Physical Silk Thread Stitch Holes with 3D highlight */
+.silk-stitch {
+  width: 16px;
+  height: 3.5px;
+  background: #fceecc;
+  border-radius: 1px;
+  margin-left: 9px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.silk-stitch::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+/* Real Paper Title Strip with deckle-edge fiber feeling (Tíqiān 題簽) */
+.authentic-tiqian-slip {
+  background: #fdfaf3;
+  background-image: radial-gradient(#d6c9b3 0.6px, transparent 0.6px);
+  background-size: 8px 8px;
+  border: 1.5px solid #ab9875;
+  box-shadow: 
+    2px 4px 10px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1.5px #fdfaf3,
+    inset 0 0 0 2.5px #c8b796;
+}
+
+/* Imperial Vermilion Wax Seal */
+.wax-cinnabar-seal {
+  background: radial-gradient(circle at 35% 35%, #b92525 0%, #851313 100%);
+  color: #fff9ed;
+  border: 1.5px solid #5a0a0a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+/* Book Stand Plaque (Targhetta d'appoggio in legno sagomato) */
+.book-stand-pedestal {
+  background: linear-gradient(180deg, #2a1b12 0%, #1e120b 100%);
+  border: 1px solid #4a2e1d;
+  border-top: 2px solid #855331;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Physical Wooden Shelf */
+.wooden-shelf-plank {
+  height: 32px;
+  background: linear-gradient(180deg, #61391b 0%, #452611 35%, #2a1508 100%);
+  border-top: 3px solid #9e6433;
+  border-bottom: 2px solid #140803;
+  box-shadow: 
+    0 18px 30px rgba(0, 0, 0, 0.9),
+    inset 0 2px 4px rgba(255, 235, 190, 0.3);
   position: relative;
   z-index: 20;
 }
 
-.wooden-shelf-plank::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 120px,
-    rgba(0, 0, 0, 0.15) 121px,
-    transparent 124px
-  );
-  pointer-events: none;
-}
-
-/* Authentic Chinese Stitch Bound Book (Xian Zhuang Shū 線裝書) */
-.xianzhuang-book {
-  position: relative;
-  border-radius: 2px 5px 5px 2px;
-  box-shadow: 
-    -4px 4px 14px rgba(0, 0, 0, 0.7),
-    0 12px 24px rgba(0, 0, 0, 0.6),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-}
-
-.xianzhuang-book:hover {
-  transform: translateY(-14px) scale(1.02);
-  box-shadow: 
-    -6px 18px 28px rgba(0, 0, 0, 0.85),
-    0 0 20px rgba(212, 175, 55, 0.25),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-}
-
-/* Left spine stitches (Silk threads holding the book) */
-.silk-binding-spine {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 32px;
-  background: rgba(0, 0, 0, 0.22);
-  border-right: 1.5px solid rgba(0, 0, 0, 0.4);
-  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Vertical Silk Stitches (4 Traditional Holes 四針眼) */
-.stitch-hole {
-  width: 14px;
-  height: 3px;
-  background: #f7e6be;
-  border-radius: 1px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  position: absolute;
-  left: 8px;
-}
-
-/* Authentic Paper Title Slip (Tíqiān 題簽) */
-.tiqian-paper {
-  background: #fdfaf2;
-  border: 1px solid #bfb297;
-  box-shadow: 
-    1px 2px 6px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 2px #fdfaf2,
-    inset 0 0 0 3px #d6c8aa;
-}
-
-/* Vermilion Cinnabar Seal */
-.cinnabar-seal-stamp {
-  background: #9e1a1a;
-  color: #fffaf0;
-  border: 1.5px solid #6b0c0c;
-  box-shadow: 0 2px 4px rgba(158, 26, 26, 0.4);
-}
-
-/* Vertical Writing Mode */
+/* Vertical Text */
 .vertical-chinese {
   writing-mode: vertical-rl;
   text-orientation: upright;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #19100a;
+  background: #140d08;
 }
 ::-webkit-scrollbar-thumb {
-  background: #4a301e;
+  background: #472b18;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
