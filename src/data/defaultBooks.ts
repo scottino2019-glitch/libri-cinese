@@ -1,50 +1,32 @@
 import { Book } from '../types';
 
 /**
- * PALETTE COLORI TRADIZIONALI PER COPERTINE (in rotazione automatica se non specificato)
- * 0: Indaco Imperiale (Blu)
- * 1: Lacca Cinabro (Rosso)
- * 2: Seta Giada (Verde)
- * 3: Sandalo & Ambra (Marrone dorato)
- * 4: Porpora Reale (Viola scuro)
- * 5: Oltremare Antico (Blu petrolio)
+ * PALETTE TONALITÀ SETA RICCHE E DISTINTE PER COPERTINE DEI LIBRI
+ * Colori saturi e profondi per evitare qualsiasi effetto monocromatico o piatto
  */
 export const COVER_PALETTE = [
-  '#1e385b', // Indaco profondo
-  '#801414', // Rosso cinabro
-  '#1b4332', // Verde giada
-  '#69350d', // Sandalo
-  '#4a1c52', // Porpora
-  '#0e4450', // Petrolio / Oltremare
-  '#2b2b2b', // Nero grafite
-  '#854d0e', // Bronzo dorato
+  '#991b1b', // Rosso Granato Vivo
+  '#1e3a8a', // Blu Zaffiro Profondo
+  '#14532d', // Verde Giada Smeraldo
+  '#78350f', // Ambra Cuoio Dorata
+  '#581c87', // Porpora Reale
+  '#0f766e', // Turchese Petrolio
+  '#831843', // Rubino Damascato
+  '#1e293b', // Grafite Ardesia
 ];
 
-/**
- * STRUTTURA MINIMA PER AGGIUNGERE UN LIBRO
- * Bastano 3 campi obbligatori:
- * - title: titolo in italiano
- * - chineseTitle: titolo in ideogrammi cinesi (usato anche per la striscia di copertina e il timbro)
- * - fileName: il file html in /public/books/ (oppure se omesso usa il titolo normalizzato + .html)
- *
- * Tutti gli altri campi (author, dynasty, color, seal, category) sono FACOLTATIVI e calcolati in automatico!
- */
 export interface SimpleBookInput {
   title: string;
   chineseTitle: string;
-  fileName?: string;       // es. "tao-te-ching.html". Se omesso, viene generato da title
-  author?: string;         // es. "Laozi" (default: "Autore Classico")
-  dynasty?: string;        // es. "Dinastia Tang" (default: "Classico Antico")
-  category?: 'fiabe' | 'classici' | 'filosofia' | 'strategia' | 'letteratura' | 'storia'; // default: 'fiabe'
-  color?: string;          // es. '#1e385b' (se omesso prende a rotazione un colore nobile)
-  seal?: string;           // singolo carattere timbro (se omesso prende il 1° carattere di chineseTitle)
-  description?: string;    // facoltativa
+  fileName?: string;
+  author?: string;
+  dynasty?: string;
+  category?: 'fiabe' | 'classici' | 'filosofia' | 'strategia' | 'letteratura' | 'storia';
+  color?: string;
+  seal?: string;
+  description?: string;
 }
 
-/**
- * INSERISCI QUI I TUOI LIBRI:
- * È sufficiente aggiungere righe semplici con solo titolo, caratteri cinesi e nome file!
- */
 export const RAW_BOOKS: SimpleBookInput[] = [
   {
     title: 'Cappuccetto Rosso',
@@ -53,7 +35,7 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     author: 'Fiaba Tradizionale',
     dynasty: 'Racconto Popolare',
     category: 'fiabe',
-    color: '#801414',
+    color: '#a31515', // Rosso Scarlatto
     seal: '红',
   },
   {
@@ -61,58 +43,60 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     chineseTitle: '道德經',
     fileName: 'tao-te-ching.html',
     author: 'Laozi',
-    dynasty: 'Zhou • VI sec. a.C.',
+    dynasty: 'Epoca Zhou',
     category: 'filosofia',
+    color: '#1d4ed8', // Blu Zaffiro Brillante
+    seal: '道',
   },
   {
     title: "L'Arte della Guerra",
     chineseTitle: '孫子兵法',
     fileName: 'arte-della-guerra.html',
     author: 'Sun Tzu',
-    dynasty: 'Stati Combattenti • V sec. a.C.',
+    dynasty: 'Stati Combattenti',
     category: 'strategia',
+    color: '#15803d', // Verde Foresta Intenso
+    seal: '武',
   },
   {
     title: 'I Dialoghi di Confucio',
     chineseTitle: '論語',
     fileName: 'dialoghi-confucio.html',
     author: 'Confucio',
-    dynasty: 'Primavere e Autunni',
+    dynasty: 'Periodo Classico',
     category: 'classici',
+    color: '#b45309', // Ambra Dorata Brillante
+    seal: '仁',
   },
   {
-    title: 'Il Romanzo dei Tre Regni',
+    title: 'I Tre Regni',
     chineseTitle: '三國演義',
     fileName: 'tre-regni.html',
     author: 'Luo Guanzhong',
-    dynasty: 'Dinastia Yuan-Ming',
+    dynasty: 'Epoca Ming',
     category: 'storia',
+    color: '#6d28d9', // Viola Porpora Ricco
+    seal: '義',
   },
   {
-    title: 'Fiori di Poesia Tang',
+    title: 'Poesie dei Tang',
     chineseTitle: '唐詩三百首',
     fileName: 'poesie-tang.html',
     author: 'Li Bai, Du Fu',
     dynasty: 'Dinastia Tang',
     category: 'letteratura',
-  },
-  {
-    title: 'Zhuangzi',
-    chineseTitle: '莊子',
-    fileName: 'tao-te-ching.html',
-    author: 'Zhuang Zhou',
-    dynasty: 'Stati Combattenti',
-    category: 'filosofia',
+    color: '#0e7490', // Blu Pavone / Petrolio
+    seal: '詩',
   },
 ];
 
 const CATEGORY_NAMES: Record<string, string> = {
-  fiabe: 'Fiabe & Racconti',
-  classici: 'Grandi Classici',
-  filosofia: 'Filosofia & Maestri',
-  strategia: 'Arte Militare',
-  letteratura: 'Lirica & Poesia',
-  storia: 'Cronache Storiche',
+  fiabe: 'Fiabe',
+  classici: 'Classici',
+  filosofia: 'Filosofia',
+  strategia: 'Strategia',
+  letteratura: 'Letteratura',
+  storia: 'Storia',
 };
 
 const CATEGORY_SEALS: Record<string, string> = {
@@ -124,14 +108,13 @@ const CATEGORY_SEALS: Record<string, string> = {
   storia: '史',
 };
 
-// Funzione automatica che trasforma la lista minima nei libri completi pronti per lo scaffale
 export function formatBooks(inputs: SimpleBookInput[]): Book[] {
   return inputs.map((item, index) => {
     const id = item.fileName
       ? item.fileName.replace('.html', '')
       : item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const color = item.color || COVER_PALETTE[index % COVER_PALETTE.length];
-    const cat = item.category || 'classici';
+    const cat = item.category || 'fiabe';
     const seal = item.seal || item.chineseTitle.charAt(0) || '書';
 
     return {
@@ -139,14 +122,14 @@ export function formatBooks(inputs: SimpleBookInput[]): Book[] {
       title: item.title,
       chineseTitle: item.chineseTitle,
       author: item.author || 'Autore Classico',
-      dynastyOrPeriod: item.dynasty || 'Canone Tradizionale',
+      dynastyOrPeriod: item.dynasty || 'Antico',
       category: cat,
-      categoryName: CATEGORY_NAMES[cat] || 'Testo Classico',
+      categoryName: CATEGORY_NAMES[cat] || 'Volume',
       categorySeal: CATEGORY_SEALS[cat] || '典',
       fileName: item.fileName || `${id}.html`,
-      description: item.description || `Volume storico conservato nella biblioteca imperiale.`,
+      description: item.description || '',
       sealCharacter: seal,
-      bindingStyle: 'Edizione a Filo di Seta',
+      bindingStyle: 'Rilegatura Tradizionale',
       theme: {
         primary: color,
         spineBorder: '#140e0a',
@@ -155,7 +138,7 @@ export function formatBooks(inputs: SimpleBookInput[]): Book[] {
         badgeText: '#3d2516',
         titleColor: '#ffffff',
         sealColor: '#991b1b',
-        silkPatternName: 'Seta Orientale',
+        silkPatternName: 'Seta Pregiata',
       },
     };
   });
