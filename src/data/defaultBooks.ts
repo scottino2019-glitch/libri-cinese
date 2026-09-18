@@ -39,6 +39,16 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     seal: '红',
   },
   {
+    title: 'La Festa di Primavera',
+    chineseTitle: '春节',
+    fileName: 'primavera.html',
+    author: 'Li Bao',
+    dynasty: 'Racconto Popolare',
+    category: 'letteratura',
+    color: '#581c87', // Porpora Reale
+    seal: '春',
+  },
+  {
     title: 'Tao Te Ching',
     chineseTitle: '道德經',
     fileName: 'tao-te-ching.html',
