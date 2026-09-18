@@ -46,7 +46,7 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     dynasty: 'Racconto Popolare',
     category: 'letteratura',
     color: '#581c87', // Porpora Reale
-    seal: '春',
+    seal: '集',
   },
   {
     title: 'Tao Te Ching',
