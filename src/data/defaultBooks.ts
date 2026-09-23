@@ -55,8 +55,8 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     author: 'Fiaba Tradizionale',
     dynasty: 'Racconto Popolare',
     category: 'fiabe',
-    color: '#a31515', // Rosso Scarlatto
-    seal: '精灵',
+    color: '#14532d', // Rosso Scarlatto
+    seal: '精',
   },
   {
     title: 'Tao Te Ching',
