@@ -50,7 +50,7 @@ export const RAW_BOOKS: SimpleBookInput[] = [
   },
    {
     title: 'Il folletto Momo',
-    chineseTitle: '小精灵末末',
+    chineseTitle: '末末',
     fileName: 'il_piccolo_folletto_momo.html',
     author: 'Fiaba Tradizionale',
     dynasty: 'Racconto Popolare',
