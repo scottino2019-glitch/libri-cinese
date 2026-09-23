@@ -48,6 +48,16 @@ export const RAW_BOOKS: SimpleBookInput[] = [
     color: '#581c87', // Porpora Reale
     seal: '春',
   },
+   {
+    title: 'Il folletto Momo',
+    chineseTitle: '小精灵末末',
+    fileName: 'il_piccolo_folletto_momo.html',
+    author: 'Fiaba Tradizionale',
+    dynasty: 'Racconto Popolare',
+    category: 'fiabe',
+    color: '#a31515', // Rosso Scarlatto
+    seal: '精灵',
+  },
   {
     title: 'Tao Te Ching',
     chineseTitle: '道德經',
